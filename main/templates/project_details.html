@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ project.name }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/project_details.css' %}">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-inner">
+    <a href="{% url 'home' %}" class="nav-brand">{{ user.fullname }}<span style="color:var(--accent);">.</span></a>
+    <ul class="nav-links">
+      <li><a href="{% url 'home' %}#skills">Skills</a></li>
+      <li><a href="{% url 'home' %}#education">Education</a></li>
+      <li><a href="{% url 'home' %}#contact">Contact</a></li>
+      <li><a href="{% url 'projects' %}" class="active">Projects</a></li>
+      <li><a href="{% url 'download_resume' %}">Resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- Back button -->
+  <div class="back-row fade-up">
+    <a href="{% url 'projects' %}" class="back-link">
+      <i class="bi bi-arrow-left"></i> Back to Projects
+    </a>
+  </div>
+
+  <!-- Project Image -->
+  {% if project.image %}
+  <div class="detail-img-wrap fade-up delay-1">
+    <img src="{{ project.image.url }}" alt="{{ project.name }}" class="detail-img">
+  </div>
+  {% endif %}
+
+  <!-- Project Info -->
+  <div class="detail-body fade-up delay-2">
+
+    <div class="detail-header">
+      <h1 class="detail-title">{{ project.name }}</h1>
+      {% if project.github_repo %}
+      <a href="{{ project.github_repo }}" target="_blank" class="btn-accent">
+        <i class="bi bi-github"></i> View on GitHub
+      </a>
+      {% endif %}
+    </div>
+
+    <hr class="section-divider" style="margin-bottom: 2rem;">
+
+    <div class="detail-content">
+      <p class="section-label">About this project</p>
+      <p class="detail-desc">{{ project.project_details }}</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <p style="font-size:0.85rem; color:var(--muted-2); margin-bottom:0.3rem;">{{ user.fullname }}</p>
+  <p style="font-size:0.75rem; color:var(--muted); margin:0;">{{ user.degree }} &mdash; {{ user.course }}</p>
+</footer>
+
+<!-- Scroll button -->
+<button id="scroll-btn">
+  <i id="scroll-icon" class="bi bi-arrow-down"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const scrollBtn  = document.getElementById('scroll-btn');
+  const scrollIcon = document.getElementById('scroll-icon');
+
+  function updateIcon() {
+    scrollIcon.className = window.scrollY > 200 ? 'bi bi-arrow-up' : 'bi bi-arrow-down';
+  }
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.scrollY > 200 ? 0 : document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', updateIcon);
+  updateIcon();
+</script>
+</body>
+</html>
