@@ -1,1 +1,1 @@
-from portfolio.wsgi import application  # import the existing WSGI app
+from portfolio.wsgi import application
