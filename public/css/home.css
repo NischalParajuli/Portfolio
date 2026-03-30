@@ -1,0 +1,176 @@
+/* ── Hero ── */
+.hero {
+  padding: 6rem 0 5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-greeting {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted-2);
+  margin-bottom: 1rem;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.hero-summary {
+  font-size: 1rem;
+  color: var(--muted-2);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-img-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-img {
+  width: 200px; height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--border);
+  filter: sepia(15%);
+}
+
+.hero-img-ring {
+  position: absolute; inset: -8px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+.skill-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.skill-img {
+  width: 36px; height: 36px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+  filter: sepia(20%);
+}
+
+.skill-icon-fallback {
+  width: 36px; height: 36px;
+  border-radius: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 0.6rem;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.skill-name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* ── Education ── */
+.edu-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.edu-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.75rem 2rem;
+}
+
+.edu-badge {
+  display: block;
+  width: fit-content;
+  background: rgba(201,132,90,0.1);
+  color: var(--accent);
+  border: 1px solid rgba(201,132,90,0.25);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.edu-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.edu-sub {
+  font-size: 0.92rem;
+  color: var(--muted-2);
+  margin: 0;
+}
+
+/* ── Contact ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.contact-link {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--muted-2);
+  font-size: 0.88rem; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.contact-link:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+.contact-link i { font-size: 1.15rem; color: var(--accent); }

@@ -1,9 +1,32 @@
 {
   "version": 2,
   "builds": [
-    { "src": "wsgi.py", "use": "@vercel/python" }
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "buildCommand": "python api/build.py"
+      }
+    }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "wsgi.py" }
-  ]
+    {
+      "src": "/static/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/media/(.*)",
+      "dest": "/media/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "api/index.py"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 10
+    }
+  }
 }
