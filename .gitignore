@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -136,3 +136,4 @@ dmypy.json
 .DS_Store
 Thumbs.db
 __pycache__/
+main/__pycache__/

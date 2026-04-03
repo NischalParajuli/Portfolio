@@ -8,6 +8,7 @@ from django.conf import settings
 def home(request):
     user = UserProfile.objects.first()
     skills = Skill.objects.all()
+    user.summary="Results-driven Python Developer specializing in backend development, building scalable APIs and web systems with Django and Flask. Skilled in Python, SQL, and database management, with a focus on clean, efficient, and high-performance code."
     return render(request, 'home.html', {'user': user, 'skills': skills})
 
 @never_cache
