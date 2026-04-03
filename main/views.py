@@ -8,7 +8,6 @@ from django.conf import settings
 def home(request):
     user = UserProfile.objects.first()
     skills = Skill.objects.all()
-    user.summary=""
     return render(request, 'home.html', {'user': user, 'skills': skills})
 
 @never_cache
