@@ -9,8 +9,6 @@ def home(request):
     user = UserProfile.objects.first()
     skills = Skill.objects.all()
     user.summary="Results-driven Python Developer specializing in backend development, building scalable APIs and web systems with Django and Flask. Skilled in Python, SQL, and database management, with a focus on clean, efficient, and high-performance code."
-    user.college_location = "Gauradaha, Jhapa"
-    user.school_location = "Gauradaha, Jhapa"
     return render(request, 'home.html', {'user': user, 'skills': skills})
 
 @never_cache
