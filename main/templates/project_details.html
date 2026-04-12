@@ -51,10 +51,11 @@
       <a href="{{ project.github_repo }}" target="_blank" class="btn-accent">
         <i class="bi bi-github"></i> View on GitHub
       </a>
-       <a href="{{ project.live_url }}" target="_blank" class="btn-accent">
+      {% endif %}
+      {% if project.live_url %}
+      <a href="{{ project.live_url }}" target="_blank" class="btn-accent">
         <i class="bi bi-globe"></i> View on Website
       </a>
-
       {% endif %}
     </div>
 
