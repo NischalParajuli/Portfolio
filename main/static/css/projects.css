@@ -24,6 +24,9 @@
   overflow: hidden;
   cursor: pointer;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .project-card:hover {
   border-color: var(--accent);
@@ -46,7 +49,12 @@
   color: var(--muted); font-size: 2rem;
 }
 
-.card-body-inner { padding: 1.25rem 1.4rem 1.4rem; }
+.card-body-inner { 
+  padding: 1.25rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 .card-title {
   font-family: 'Playfair Display', serif;
@@ -60,7 +68,9 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  margin-bottom: 0.9rem; line-height: 1.6;
+  margin-bottom: 0.9rem; 
+  line-height: 1.6;
+  flex: 1;
 }
 
 .card-footer-row {
