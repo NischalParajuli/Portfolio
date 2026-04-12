@@ -33,6 +33,7 @@ class Project(models.Model):
   image = models.ImageField(upload_to="projects/", height_field=None, width_field=None, max_length=None)
   project_details = models.TextField(blank = False , null=True)
   github_repo = models.URLField()
+  live_url = models.URLField(blank=True, null=True)
 
 class Resume(models.Model):
   name = models.CharField(max_length=100)

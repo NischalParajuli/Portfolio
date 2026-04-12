@@ -47,11 +47,18 @@
 
     <div class="detail-header">
       <h1 class="detail-title">{{ project.name }}</h1>
-      {% if project.github_repo %}
-      <a href="{{ project.github_repo }}" target="_blank" class="btn-accent">
-        <i class="bi bi-github"></i> View on GitHub
-      </a>
-      {% endif %}
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+        {% if project.github_repo %}
+        <a href="{{ project.github_repo }}" target="_blank" class="btn-accent">
+          <i class="bi bi-github"></i> View on GitHub
+        </a>
+        {% endif %}
+        {% if project.live_url %}
+        <a href="{{ project.live_url }}" target="_blank" class="btn-accent">
+          <i class="bi bi-box-arrow-up-right"></i> Live Demo
+        </a>
+        {% endif %}
+      </div>
     </div>
 
     <hr class="section-divider" style="margin-bottom: 2rem;">
